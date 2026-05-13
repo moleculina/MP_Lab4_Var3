@@ -1,0 +1,33 @@
+# PyCharm (ваша IDE)
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# Python временные файлы
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+
+# База данных (ВАЖНО! не загружайте сам файл БД)
+*.db
+*.sqlite
+*.sqlite3
+data/
+*.db-journal
+
+# Виртуальное окружение PyCharm
+venv/
+.venv/
+env/
+.env
+ENV/
+
+# Логи
+*.log
+
+# Файлы операционной системы
+.DS_Store
+Thumbs.db
