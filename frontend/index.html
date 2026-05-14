@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>University Portal | Успеваемость студентов</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- ШАПКА САЙТА -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <span class="logo-icon">🎓</span>
+                <span class="logo-text">University Portal</span>
+            </div>
+            <nav class="nav">
+                <a href="#" class="nav-link active" data-section="dashboard">Главная</a>
+                <a href="#" class="nav-link" data-section="students">Студенты</a>
+                <a href="#" class="nav-link" data-section="disciplines">Дисциплины</a>
+                <a href="#" class="nav-link" data-section="stats">Статистика</a>
+            </nav>
+            <button class="theme-toggle" id="themeToggle">🌙</button>
+        </div>
+    </header>
+
+    <!-- ОСНОВНОЕ СОДЕРЖИМОЕ -->
+    <main class="main">
+        <div class="container">
+
+            <!-- СЕКЦИЯ: ГЛАВНАЯ -->
+            <section id="dashboard-section" class="section active">
+                <div class="hero">
+                    <h1>Университетская <span class="gradient-text">информационная система</span></h1>
+                    <p>Управление успеваемостью студентов, рейтинг дисциплин и поиск отличников</p>
+                </div>
+
+                <!-- ТРИ КАРТОЧКИ СО СТАТИСТИКОЙ -->
+                <div class="stats-cards">
+                    <div class="stat-card">
+                        <div class="stat-value" id="studentsCount">0</div>
+                        <div class="stat-label">Студентов</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" id="disciplinesCount">0</div>
+                        <div class="stat-label">Дисциплин</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" id="honorsCount">0</div>
+                        <div class="stat-label">Отличников</div>
+                    </div>
+                </div>
+
+                <!-- ДВЕ КОЛОНКИ -->
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h3>🏆 Топ-5 студентов</h3>
+                        <div id="topStudentsList" class="list-container">Загрузка...</div>
+                    </div>
+                    <div class="info-card">
+                        <h3>⭐ Отличники (ср. балл ≥ 4.5)</h3>
+                        <div id="honorsList" class="list-container">Загрузка...</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- СЕКЦИЯ: СТУДЕНТЫ -->
+            <section id="students-section" class="section">
+                <h2>👨‍🎓 Управление студентами</h2>
+                <div class="add-form">
+                    <input type="text" id="studentName" placeholder="ФИО студента">
+                    <input type="text" id="studentGroup" placeholder="Группа">
+                    <button id="addStudentBtn" class="btn btn-primary">➕ Добавить студента</button>
+                </div>
+                <div id="studentsList" class="cards-grid">Загрузка...</div>
+            </section>
+
+            <!-- СЕКЦИЯ: ДИСЦИПЛИНЫ -->
+            <section id="disciplines-section" class="section">
+                <h2>📚 Управление дисциплинами</h2>
+                <div class="add-form">
+                    <input type="text" id="disciplineName" placeholder="Название дисциплины">
+                    <input type="number" id="disciplineCredits" placeholder="Кредиты">
+                    <button id="addDisciplineBtn" class="btn btn-primary">➕ Добавить дисциплину</button>
+                </div>
+                <div id="disciplinesList" class="cards-grid">Загрузка...</div>
+            </section>
+
+            <!-- СЕКЦИЯ: СТАТИСТИКА -->
+            <section id="stats-section" class="section">
+                <h2>📊 Статистика по дисциплинам</h2>
+                <div class="select-group">
+                    <select id="disciplineSelect">
+                        <option value="">Выберите дисциплину</option>
+                    </select>
+                    <button id="showRatingBtn" class="btn btn-secondary">Показать рейтинг</button>
+                </div>
+                <div id="disciplineRating" class="info-card">
+                    <p>Выберите дисциплину для просмотра рейтинга студентов</p>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- МОДАЛЬНОЕ ОКНО ДЛЯ ДОБАВЛЕНИЯ ОЦЕНКИ -->
+    <div id="gradeModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3>Поставить оценку</h3>
+            <select id="gradeStudentSelect">
+                <option value="">Выберите студента</option>
+            </select>
+            <select id="gradeDisciplineSelect">
+                <option value="">Выберите дисциплину</option>
+            </select>
+            <input type="number" id="gradeScore" step="0.5" min="2" max="5" placeholder="Оценка (2-5)">
+            <button id="saveGradeBtn" class="btn btn-primary">Сохранить</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

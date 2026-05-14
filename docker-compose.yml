@@ -1,0 +1,25 @@
+version: "3.9"
+
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    container_name: deadlock-backend
+    ports:
+      - "8010:8010"
+    volumes:
+      - ./backend/app:/app
+      - ./data:/data
+    environment:
+      - PYTHONUNBUFFERED=1
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: deadlock-frontend
+    ports:
+      - "8080:80"
+    depends_on:
+      - backend
